@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teste de Perfil Comportamental — Larissa Machado</title>
-  <meta name="description" content="Mapeie seu perfil comportamental completo: DISC, Jung, Spranger, Liderança, Crenças e Abundância.">
+  <title>Teste de Perfil Emocional — Larissa Machado</title>
+  <meta name="description" content="Mapeie seu perfil emocional completo: como você se vincula, se relaciona, se enxerga e recupera energia — em 7 dimensões.">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cabin:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     /* ── Tokens ── */
@@ -424,46 +424,46 @@
 <!-- ═══════════════════════ INTRO ═══════════════════════ -->
 <div id="screen-intro" class="screen active">
   <div class="container">
-    <div class="badge"><span class="badge-dot"></span> Mapeamento Comportamental Completo</div>
+    <div class="badge"><span class="badge-dot"></span> Mapeamento Emocional Completo</div>
 
     <h1 class="intro-title">
-      Descubra seu<br><em>Perfil de Líder</em>
+      Descubra seu verdadeiro<br><em>Perfil de Mulher</em>
     </h1>
 
     <p class="intro-lead">
-      Um diagnóstico profundo em 7 dimensões — DISC, Jung, Spranger, Liderança, Crenças, Abundância e Dinâmica Relacional. Leva cerca de <strong>15–20 minutos</strong>. Resultados instantâneos.
+      Um diagnóstico profundo em 7 dimensões — como você se comporta, se vincula, se enxerga e recupera energia nas suas relações e na sua vida. Leva cerca de <strong>15–20 minutos</strong>. Resultados instantâneos.
     </p>
 
     <div class="intro-grid">
       <div class="intro-item">
         <div class="intro-item-icon">🎯</div>
         <h4>DISC</h4>
-        <p>Comportamento natural em 4 dimensões</p>
+        <p>Seu comportamento natural na vida e nas relações</p>
       </div>
       <div class="intro-item">
         <div class="intro-item-icon">🧠</div>
         <h4>Tipos de Jung</h4>
-        <p>Funcionamento psicológico genuíno</p>
+        <p>Como você processa emoções e toma decisões</p>
       </div>
       <div class="intro-item">
         <div class="intro-item-icon">⚖️</div>
         <h4>Valores Spranger</h4>
-        <p>Hierarquia dos seus valores reais</p>
+        <p>O que realmente move você por dentro</p>
       </div>
       <div class="intro-item">
         <div class="intro-item-icon">👑</div>
         <h4>Liderança</h4>
-        <p>Seu estilo natural de liderar</p>
+        <p>Seu estilo natural de influenciar e conduzir pessoas</p>
       </div>
       <div class="intro-item">
         <div class="intro-item-icon">💎</div>
         <h4>Crenças</h4>
-        <p>Identidade, capacidade e abundância</p>
+        <p>O que você acredita sobre si mesma e seu potencial</p>
       </div>
       <div class="intro-item">
-        <div class="intro-item-icon">💞</div>
-        <h4>Relacionamentos</h4>
-        <p>Dinâmica relacional com parceiro(a)</p>
+        <div class="intro-item-icon">🔑</div>
+        <h4>Autonomia e Relacionamento</h4>
+        <p>Independência emocional e qualidade dos vínculos</p>
       </div>
     </div>
 
@@ -532,7 +532,7 @@
   <div class="results-hero">
     <div class="container">
       <p class="eyebrow">Análise completa</p>
-      <h1>Seu Perfil Comportamental</h1>
+      <h1>Seu Perfil Emocional</h1>
       <p>Baseado nas suas respostas · <span id="resultDate"></span></p>
     </div>
   </div>
@@ -548,82 +548,82 @@
 const SECTIONS = [
   {
     id:'disc', eyebrow:'DISC — Marston (1928)', icon:'🎯',
-    title:'Comportamento Natural',
-    desc:'Responda com base em como você realmente se comporta no trabalho — não como gostaria de ser, mas como age naturalmente.',
+    title:'Como você naturalmente é',
+    desc:'Responda com base em como você realmente age — na vida, nas relações e no dia a dia. Não o que seria ideal, mas o que é genuíno.',
     type:'c4',
     questions:[
-      { t:'Quando precisa tomar uma decisão importante, você...', o:['Decide rápido e age — mesmo sem todas as informações','Conversa com várias pessoas e busca o apoio do time','Pesa cada aspecto com cuidado antes de se posicionar','Analisa dados e cria critérios sólidos antes de decidir'] },
-      { t:'Numa reunião com conflito, você tende a...', o:['Confrontar diretamente e resolver logo','Usar humor e empatia para aliviar a tensão','Ouvir todos os lados e buscar consenso','Identificar onde estão os erros e apontar com dados'] },
-      { t:'Seu time te descreve como...', o:['Firme, direta e orientada a resultado','Animada, inspiradora e cheia de energia','Calma, paciente e fácil de trabalhar','Detalhista, criteriosa e altamente confiável'] },
-      { t:'Quando um projeto atrasa, você...', o:['Cobra o responsável e traça novo plano imediatamente','Motiva o time e reacende o entusiasmo coletivo','Mantém a calma, suporta o time e reorganiza os processos','Revisa tudo, identifica a causa raiz e documenta'] },
-      { t:'Seu maior medo no trabalho é...', o:['Perder o controle ou ser dominado por outros','Ser ignorado ou perder a aprovação do grupo','Mudanças bruscas que quebram a rotina e os processos','Errar por falta de informação ou análise insuficiente'] },
-      { t:'Seu ponto forte que todos reconhecem é...', o:['Capacidade de agir e decidir com rapidez','Comunicação e capacidade de inspirar pessoas','Constância, lealdade e suporte genuíno ao time','Precisão, análise e qualidade consistente do trabalho'] },
-      { t:'Quando precisa vender uma ideia, você...', o:['Apresenta com convicção e força, direto ao ponto','Usa histórias, emoção e conexão pessoal','Mostra como vai funcionar na prática, passo a passo','Apresenta dados, evidências e análise detalhada'] },
-      { t:'Seu ritmo de trabalho ideal é...', o:['Alta velocidade, múltiplos projetos em paralelo','Variado, com bastante interação e novidades constantes','Estável, previsível, com processos e rotinas claros','Sistemático, com tempo suficiente para análise e revisão'] },
-      { t:'Quando erra, você...', o:['Assume, corrige e segue em frente imediatamente','Fica incomodada com a imagem que transmitiu','Sente muito — preocupa-se com o impacto nas relações','Investiga a fundo o que saiu errado para não repetir'] },
-      { t:'Como você prefere receber feedback?', o:['Direto, rápido e focado no que precisa melhorar','De forma encorajadora, reconhecendo o que foi bem','Com cuidado, em particular e com tempo para processar','Com dados e exemplos específicos que justifiquem cada ponto'] },
-      { t:'Na liderança do time, você prioriza...', o:['Resultados e metas acima de tudo','Engajamento, moral e motivação da equipe','Coesão, harmonia e estabilidade do grupo','Processos corretos, qualidade e conformidade com padrões'] },
-      { t:'Você se reconhece mais em...', o:['"Fazer acontecer — rápido e com impacto real"','"Inspirar e conectar pessoas em torno de um propósito"','"Ser a âncora que mantém tudo funcionando"','"Garantir que cada detalhe esteja correto"'] }
+      { t:'Quando alguém que você ama faz algo que te magoa, você...', o:['Fala diretamente e resolve na hora — não deixa acumular','Tenta entender o lado do outro e busca a paz rapidamente','Absorve em silêncio e espera o momento certo para conversar','Analisa bem a situação antes de reagir e pensa em cada palavra'] },
+      { t:'Quando precisa tomar uma decisão importante na sua vida, você...', o:['Decide com rapidez com base no que sente — confia no instinto','Conversa com várias pessoas, ouve opiniões e busca apoio','Pesa cada aspecto com cuidado e prefere ter certeza antes de mudar','Pesquisa, analisa e cria critérios sólidos antes de decidir'] },
+      { t:'Pessoas próximas a você te descrevem como...', o:['Forte, determinada e direta','Animada, carinhosa e cheia de energia','Calma, paciente e sempre disponível para ajudar','Cuidadosa, criteriosa e muito confiável'] },
+      { t:'Quando uma situação na sua vida sai do controle, você...', o:['Age imediatamente para resolver — não consegue ficar parada','Mantém o ânimo, motiva quem está ao redor e busca saídas','Se mantém calma, suporta o processo e espera as coisas se encaixarem','Revisa tudo, identifica o que saiu errado e tenta entender o porquê'] },
+      { t:'Seu maior medo nas relações e na vida é...', o:['Perder o controle ou ser dominada por outra pessoa','Ser ignorada, rejeitada ou não aprovada por quem importa','Mudanças bruscas que quebrem a estabilidade e a rotina','Ser mal compreendida ou errar por falta de informação clara'] },
+      { t:'O ponto forte que as pessoas ao seu redor reconhecem em você é...', o:['Capacidade de agir e resolver com rapidez e força','Comunicação, energia e capacidade de conectar e inspirar','Constância, lealdade e presença consistente nas relações','Cuidado com os detalhes, precisão e confiabilidade'] },
+      { t:'Quando precisa expressar o que quer ou precisa, você...', o:['Fala com clareza e diretamente, sem rodeios','Usa emoção, humor e conexão pessoal para criar ambiente receptivo','Prefere mostrar com ações do que com palavras — não quer incomodar','Elabora o que vai dizer com cuidado antes de falar'] },
+      { t:'Seu ritmo de vida ideal é...', o:['Alta velocidade, múltiplos projetos e muita ação','Variado, com bastante interação e novidades constantes','Estável, com rotina previsível, relações sólidas e poucos imprevistos','Sistemática, com tempo para pensar e analisar antes de agir'] },
+      { t:'Quando comete um erro ou magoa alguém que ama, você...', o:['Assume, pede desculpa e segue em frente — não fica ruminando','Fica incomodada com a imagem que transmitiu e o que pensaram de você','Sente muito e se preocupa com o impacto na relação — quer reparar logo','Investiga o que saiu errado para entender e não repetir'] },
+      { t:'Como você prefere que as pessoas próximas expressem o que sentem?', o:['De forma direta, rápida e sem enrolação','De forma encorajadora, com carinho e reconhecimento','Com cuidado, em particular e com espaço para processar','Com clareza, exemplos concretos e sem contradições'] },
+      { t:'Na sua vida, você prioriza mais...', o:['Resultados, conquistas e independência','Conexão, alegria e relações que energizam','Estabilidade, harmonia e cuidado com quem ama','Qualidade, precisão e fazer as coisas do jeito certo'] },
+      { t:'Você se reconhece mais em...', o:['"Prefiro sofrer em movimento do que ficar parada esperando"','"Preciso de amor, presença e conexão para funcionar bem"','"Sou fiel, constante e estou sempre lá quando me precisam"','"Penso muito antes de agir — prefiro estar segura antes de me abrir"'] }
     ]
   },
   {
     id:'jung', eyebrow:'Tipos Psicológicos — Jung', icon:'🧠',
-    title:'Tipo Psicológico',
-    desc:'Em cada par, escolha a opção que mais descreve seu modo natural de ser — não o ideal, mas o genuíno.',
+    title:'Sua Vida Interior',
+    desc:'Em cada par, escolha a opção que mais descreve seu modo natural de ser — não o ideal, mas o genuíno. Como você realmente processa emoções, toma decisões e recupera energia.',
     type:'c2',
     questions:[
-      { t:'Eu recarrego minha energia...', o:['Em grupos, eventos e conversas — pessoas me energizam','Em silêncio e momentos solo — preciso de quietude para restaurar'] },
-      { t:'Quando processo uma decisão, costumo...', o:['Pensar em voz alta — as ideias surgem enquanto falo','Processar internamente primeiro — só falo com clareza formada'] },
-      { t:'Em termos de rede de contatos, prefiro...', o:['Muitas conexões variadas — tenho energia para novas pessoas','Poucas amizades profundas — qualidade acima de quantidade'] },
-      { t:'Em reuniões e tomada de decisão, prefiro...', o:['Ao vivo — o calor da discussão me inspira e energiza','Por escrito antes — receber a pauta e pensar com antecedência'] },
-      { t:'Ao analisar um problema, confio mais em...', o:['Dados concretos, experiências passadas e fatos verificáveis','Intuição, padrões ocultos e possibilidades ainda não mapeadas'] },
-      { t:'Meu foco natural está...', o:['No presente — o que é, o que existe e está provado agora','No futuro — o que pode ser, cenários e possibilidades novas'] },
-      { t:'Ao receber uma instrução, prefiro...', o:['Instruções claras, precisas e detalhadas — sei exatamente o que fazer','Entender o conceito geral e ter liberdade para adaptar o caminho'] },
-      { t:'Em um projeto, valorizo mais...', o:['A abordagem testada e comprovada — segurança no processo','A inovação e o novo — mesmo sem garantia de resultado'] },
-      { t:'Ao tomar decisões difíceis, priorizo...', o:['Lógica e objetividade — mesmo que a resposta doa','O impacto emocional nas pessoas envolvidas'] },
-      { t:'Ao dar uma crítica, você...', o:['Foca no que precisa melhorar — direto e preciso','Cuida muito de como a pessoa vai receber a mensagem'] },
-      { t:'Para mim, ser justo significa...', o:['Tratar com equidade e clareza — mesmo sendo desconfortável','Considerar o contexto emocional e individual de cada pessoa'] },
-      { t:'Na persuasão, convenci mais com...', o:['Argumentos racionais, dados e lógica estruturada','Conexão emocional, histórias e valores compartilhados'] },
-      { t:'Em relação à organização do dia, prefiro...', o:['Tudo planejado com antecedência — detesto surpresas','Deixar espaço para adaptação e oportunidades espontâneas'] },
-      { t:'Em relação a prazos, você...', o:['Entrega sempre no dia — prazo é compromisso sagrado','Funciona melhor com a pressão próxima ao limite'] },
-      { t:'O que te dá mais bem-estar no dia a dia?', o:['Dia estruturado, tarefas concluídas, lista cumprida','Espontaneidade, liberdade e flexibilidade de percurso'] },
-      { t:'Você prefere...', o:['Fechar as questões com clareza e seguir em frente','Manter opções abertas o máximo possível — o contexto pode mudar'] }
+      { t:'Eu recarrego minha energia...', o:['Em grupos, conversas e companhia — pessoas me restauram','Em silêncio e momentos sozinha — preciso de quietude para me recuperar'] },
+      { t:'Quando processo emoções difíceis, costumo...', o:['Conversar com alguém — falar ajuda a organizar o que sinto','Ficar sozinha por um tempo — preciso de silêncio para me recuperar'] },
+      { t:'Em termos de amizades, prefiro...', o:['Ter muitas pessoas ao redor — gosto de variedade e conexão ampla','Poucas amizades profundas — qualidade muito acima de quantidade'] },
+      { t:'Para tomar uma decisão importante na minha vida, prefiro...', o:['Discutir com pessoas próximas — o diálogo me ajuda a decidir','Processar internamente primeiro — só compartilho depois de concluir'] },
+      { t:'Para entender uma situação de conflito, confio mais em...', o:['Fatos concretos — o que realmente aconteceu e o que foi dito','Intuição, padrões que percebo e o que está implícito nas entrelinhas'] },
+      { t:'Meu foco natural está...', o:['No presente — no que está acontecendo agora, no concreto e real','No futuro — no que pode vir, nos cenários possíveis e no que está por trás'] },
+      { t:'Para entender um problema emocional, prefiro...', o:['Ter clareza do que aconteceu passo a passo — sequência e fatos','Compreender o padrão maior — o que isso representa e o que está debaixo'] },
+      { t:'Quando alguém compartilha um problema comigo, primeiro...', o:['Busco entender os detalhes concretos e oferecer algo prático','Percebo o contexto emocional maior e o que está implícito'] },
+      { t:'Ao tomar decisões difíceis na minha vida, priorizo...', o:['Lógica e objetividade — mesmo que a resposta doa','O impacto emocional em mim e nas pessoas envolvidas'] },
+      { t:'Quando alguém me magoa, prefiro...', o:['Entender o que foi objetivamente errado e como resolver','Cuidar primeiro do que sinto antes de tentar entender o outro'] },
+      { t:'Para mim, ser justa comigo mesma significa...', o:['Avaliar com clareza o que foi certo e errado, mesmo sendo duro','Considerar meu estado emocional e o contexto de cada situação'] },
+      { t:'O que me convence mais numa situação difícil é...', o:['Uma análise clara e lógica do que está acontecendo','Saber que minhas emoções e necessidades são legítimas e compreendidas'] },
+      { t:'Em relação à rotina da minha vida, prefiro...', o:['Tudo planejado — rotina e previsibilidade me dão segurança','Liberdade para adaptar — prefiro não me prender a planos rígidos'] },
+      { t:'Em relação a relacionamentos e compromissos, você...', o:['Prefere clareza e definição — não gosta de ficar no indefinido','Prefere deixar as coisas fluírem naturalmente — o tempo dirá'] },
+      { t:'O que te traz mais bem-estar no dia a dia?', o:['Dia estruturado, saber o que vem por aí, sensação de controle','Espontaneidade, liberdade para mudar de plano e seguir o fluxo'] },
+      { t:'Você prefere...', o:['Resolver situações com clareza e seguir em frente sem deixar em aberto','Manter possibilidades abertas — você processa melhor com o tempo'] }
     ]
   },
   {
     id:'spranger', eyebrow:'Hierarquia de Valores — Spranger', icon:'⚖️',
-    title:'Valores Reais',
-    desc:'Avalie cada afirmação de 1 (discordo totalmente) a 5 (concordo totalmente) com sinceridade. Não há respostas certas ou erradas.',
+    title:'O que realmente importa para você',
+    desc:'Avalie cada afirmação de 1 (discordo totalmente) a 5 (concordo totalmente) com sinceridade. Não há respostas certas ou erradas — apenas o que é real.',
     type:'likert',
     questions:[
-      { t:'Buscar conhecimento e entender profundamente como as coisas funcionam é algo central para mim.', dim:'Teórico' },
-      { t:'Prefiro saber o porquê das coisas antes de agir — teoria e compreensão antes da prática.', dim:'Teórico' },
-      { t:'Avalio minhas decisões principalmente pelo retorno prático que trazem — resultado concreto é o critério.', dim:'Econômico' },
-      { t:'Resultado financeiro e crescimento patrimonial são um dos meus principais motivadores.', dim:'Econômico' },
-      { t:'A estética, a harmonia visual e a qualidade de forma importam muito para mim no trabalho e na vida.', dim:'Estético' },
-      { t:'Valorizo a expressão criativa e a beleza nos projetos — como algo é apresentado importa tanto quanto o conteúdo.', dim:'Estético' },
-      { t:'Me realizo profundamente quando posso ajudar e impactar pessoas de forma direta e concreta.', dim:'Social' },
-      { t:'Servir a outros e contribuir para o bem coletivo guia decisões importantes da minha vida.', dim:'Social' },
-      { t:'Influenciar decisões e ter poder de impacto em organizações é muito importante para mim.', dim:'Político' },
-      { t:'Conquistar posições de liderança e reconhecimento profissional é um motivador real e legítimo.', dim:'Político' },
-      { t:'Busco um propósito maior para além dos resultados materiais — algo que transcende o sucesso comum.', dim:'Transcendente' },
+      { t:'Buscar conhecimento e entender profundamente como as coisas e as pessoas funcionam é algo central para mim.', dim:'Teórico' },
+      { t:'Gosto de entender comportamentos humanos, padrões emocionais e o que está por trás das relações.', dim:'Teórico' },
+      { t:'Avalio minhas escolhas principalmente pelo resultado concreto que trazem para a minha vida.', dim:'Econômico' },
+      { t:'Conquistas financeiras e independência econômica são motivadores reais e importantes para mim.', dim:'Econômico' },
+      { t:'A beleza, a harmonia e a estética importam muito para mim no ambiente em que vivo e nas coisas que crio.', dim:'Estético' },
+      { t:'Valorizo a qualidade e o cuidado com que as coisas são feitas — como algo é apresentado importa tanto quanto o conteúdo.', dim:'Estético' },
+      { t:'Me realizo profundamente quando posso cuidar, ajudar e impactar pessoas de forma direta e genuína.', dim:'Social' },
+      { t:'Servir a outros e contribuir para o bem de quem amo guia decisões importantes da minha vida.', dim:'Social' },
+      { t:'Ter impacto, ser reconhecida e ocupar posições de influência importa genuinamente para mim.', dim:'Político' },
+      { t:'Conquistar respeito, autoridade e reconhecimento no que faço é uma motivação real na minha vida.', dim:'Político' },
+      { t:'Busco um propósito maior para além dos resultados materiais — algo que transcende o cotidiano.', dim:'Transcendente' },
       { t:'A espiritualidade, o significado profundo da vida ou a conexão com algo maior me move genuinamente.', dim:'Transcendente' }
     ]
   },
   {
     id:'leadership', eyebrow:'Hersey & Blanchard — Liderança Situacional', icon:'👑',
     title:'Estilo de Liderança',
-    desc:'Escolha a opção que melhor descreve como você naturalmente age como líder — não o que seria ideal, mas o que é real.',
+    desc:'Escolha a opção que melhor descreve como você naturalmente age ao liderar pessoas — no trabalho, em casa ou em qualquer relação onde você influencia outros.',
     type:'c4',
     questions:[
-      { t:'Com um colaborador novo e sem experiência, você...', o:['Dá instruções claras e acompanha de perto cada passo','Ensina, explica e dá bastante feedback técnico','Pergunta como ele está se sentindo e oferece suporte emocional','Dá autonomia e confia que ele vai descobrir o caminho'] },
-      { t:'Com um profissional experiente mas desmotivado, você...', o:['Cobra mais resultado e define metas claras e firmes','Conversa, entende o que está acontecendo e reorienta com coaching','Escuta com atenção, reconhece conquistas e fortalece a confiança','Dá um projeto desafiador com total autonomia'] },
-      { t:'Em crise, você naturalmente...', o:['Assume o comando, define o plano e lidera a execução','Reúne o time para encontrar soluções juntos','Mantém o grupo unido e garante apoio emocional','Delega para quem sabe mais sobre o problema específico'] },
-      { t:'Você acredita que líderes devem, acima de tudo...', o:['Definir com clareza o que esperam de cada pessoa','Desenvolver cada pessoa para seu próximo nível','Criar um ambiente seguro para o time crescer e errar','Confiar no time e deixar as pessoas brilharem com autonomia'] },
-      { t:'Quando um resultado não veio, você primeiro...', o:['Analisa o que falhou no processo e corrige imediatamente','Conversa com cada pessoa sobre o que aprender com o erro','Garante que o time não se sinta culpado ou desmotivado','Devolve a responsabilidade para quem estava à frente do projeto'] },
-      { t:'Para você, a melhor equipe é aquela que...', o:['Executa com precisão o que foi definido','Está em constante crescimento e aprendizado coletivo','Trabalha com harmonia, confiança e colaboração genuína','É autônoma e não precisa de supervisão constante'] },
-      { t:'Seu time diria que você é um líder...', o:['Clara, firme e totalmente orientada a resultado','Coach, parceira genuína de desenvolvimento','Humana, próxima, acessível e sempre disponível','Confiante, que dá espaço real para a equipe crescer'] },
-      { t:'Na tomada de decisão estratégica, você...', o:['Decide, comunica e cobra execução','Decide depois de ouvir e discutir com o time','Busca consenso para que todos se sintam parte','Delega a decisão para quem está mais perto do problema'] }
+      { t:'Com alguém inexperiente que precisa da sua orientação (no trabalho ou na vida), você...', o:['Dá instruções claras e acompanha de perto cada passo','Ensina, explica e dá bastante feedback e direção','Pergunta como ela está se sentindo e oferece apoio emocional','Dá autonomia e confia que ela vai descobrir o caminho'] },
+      { t:'Com alguém experiente mas desmotivada, você...', o:['Cobra mais resultado e define metas claras e firmes','Conversa, entende o que está acontecendo e reorienta com coaching','Escuta com atenção, reconhece conquistas e fortalece a confiança','Dá um desafio novo com total autonomia e confia no processo'] },
+      { t:'Em crise — no trabalho, em família ou num grupo que você lidera — você naturalmente...', o:['Assume o comando, define o plano e conduz a execução','Reúne as pessoas para encontrar soluções juntas','Mantém o grupo unido e garante apoio emocional a todos','Delega para quem sabe mais sobre o problema específico'] },
+      { t:'Você acredita que quem lidera pessoas deve, acima de tudo...', o:['Definir com clareza o que espera de cada pessoa','Desenvolver cada pessoa para o seu próximo nível','Criar um ambiente seguro para crescer, errar e aprender','Confiar no time e dar espaço real para as pessoas brilharem'] },
+      { t:'Quando um resultado não vem, você primeiro...', o:['Analisa o que falhou no processo e corrige imediatamente','Conversa com cada pessoa sobre o que aprender com o erro','Garante que ninguém se sinta culpada ou desmotivada','Devolve a responsabilidade para quem estava à frente'] },
+      { t:'Para você, o melhor grupo — de trabalho, família ou amigos — é aquele que...', o:['Executa com precisão o que foi definido','Está em constante crescimento e aprendizado coletivo','Trabalha com harmonia, confiança e colaboração genuína','É autônomo e não precisa de supervisão constante'] },
+      { t:'As pessoas ao seu redor diriam que você lidera de forma...', o:['Clara, firme e totalmente orientada a resultado','Como uma parceira genuína de desenvolvimento e crescimento','Humana, próxima, acessível e sempre disponível','Confiante, dando espaço real para cada uma crescer'] },
+      { t:'Na tomada de decisão em grupo, você...', o:['Decide, comunica e conduz a execução','Decide depois de ouvir e discutir com o grupo','Busca consenso para que todas se sintam parte','Delega a decisão para quem está mais perto do problema'] }
     ]
   },
   {
@@ -632,60 +632,60 @@ const SECTIONS = [
     desc:'Avalie de 1 (discordo totalmente) a 5 (concordo totalmente). Responda o que é real hoje, não o que deseja que fosse.',
     type:'likert',
     questions:[
-      { t:'Acredito que sou capaz de resolver qualquer desafio que apareça no meu negócio ou vida pessoal.', dim:'Capacidade' },
+      { t:'Acredito que sou capaz de resolver qualquer desafio que apareça na minha vida pessoal e profissional.', dim:'Capacidade' },
       { t:'Mereço plenamente os resultados que estou buscando — sem culpa e sem autopunição.', dim:'Merecimento' },
-      { t:'Sou a líder que minha família e meu negócio precisam — agora, não no futuro.', dim:'Identidade' },
+      { t:'Sou a mulher e a líder que minha família e minha vida profissional precisam — agora, não no futuro.', dim:'Identidade' },
       { t:'Consigo ter alto desempenho profissional sem sacrificar minha saúde e minhas relações pessoais.', dim:'Equilíbrio' },
-      { t:'Posso ser firme e forte no trabalho e ainda me vulnerabilizar em casa — sem contradição.', dim:'Integridade' },
-      { t:'Minha identidade e autoestima independem dos meus resultados externos.', dim:'Autoestima' }
+      { t:'Posso ser firme e forte no trabalho e ainda me vulnerabilizar nas relações íntimas — sem contradição.', dim:'Integridade' },
+      { t:'Minha identidade e autoestima independem dos meus resultados externos e da aprovação dos outros.', dim:'Autoestima' }
     ]
   },
   {
     id:'relacionamento', eyebrow:'Dinâmica Relacional', icon:'💞',
-    title:'Relacionamento com Parceiro(a)',
-    desc:'Avalie de 1 (discordo totalmente) a 5 (concordo totalmente). Responda com honestidade sobre como você age e se sente nos seus relacionamentos íntimos.',
+    title:'Seu Relacionamento Íntimo',
+    desc:'Avalie de 1 (discordo totalmente) a 5 (concordo totalmente). Responda com honestidade sobre como você realmente age e se sente nas suas relações mais próximas.',
     type:'likert',
     questions:[
-      { t:'Consigo expressar minhas necessidades e limites com clareza sem sentir culpa ou medo de perder meu parceiro.', dim:'Autenticidade' },
-      { t:'Quando há conflito, consigo ouvir e acolher a perspectiva do meu parceiro sem abrir mão de mim mesma.', dim:'Comunicação' },
-      { t:'Me sinto emocionalmente segura para me vulnerabilizar e mostrar fraquezas dentro da relação.', dim:'Vulnerabilidade' },
-      { t:'Consigo equilibrar minha independência e ambições pessoais com a atenção que o relacionamento exige.', dim:'Equilíbrio' },
-      { t:'Sinto que sou genuinamente vista e valorizada pelo meu parceiro — não pelo que faço, mas por quem sou.', dim:'Reconhecimento' },
-      { t:'O relacionamento me fortalece — ele soma à minha identidade em vez de me consumir ou exigir que eu abandone quem sou.', dim:'Força Relacional' }
+      { t:'Consigo expressar o que preciso e o que me magoa sem medo de perder meu parceiro.', dim:'Autenticidade' },
+      { t:'Em situações de conflito, consigo ouvir sem precisar ganhar — e falar sem precisar ferir.', dim:'Comunicação' },
+      { t:'Me sinto segura para mostrar vulnerabilidade e fraquezas dentro da relação.', dim:'Segurança' },
+      { t:'Consigo respeitar minhas próprias necessidades sem me anular pelo relacionamento.', dim:'Equilíbrio' },
+      { t:'Sinto que sou genuinamente vista e valorizada — não pelo que faço, mas por quem sou.', dim:'Reconhecimento' },
+      { t:'O relacionamento me fortalece — ele me soma em vez de me consumir ou me reduzir.', dim:'Qualidade do Vínculo' }
     ]
   },
   {
-    id:'abundance', eyebrow:'Crenças Financeiras — Abundância', icon:'💎',
-    title:'Abundância e Merecimento',
-    desc:'Avalie de 1 (discordo totalmente) a 5 (concordo totalmente). Este é seu mapa de crenças sobre prosperidade.',
+    id:'abundance', eyebrow:'Autonomia Emocional e Financeira', icon:'🔑',
+    title:'Sua Independência',
+    desc:'Avalie de 1 (discordo totalmente) a 5 (concordo totalmente). Responda o que é real hoje — não o que deseja que fosse.',
     type:'likert',
     questions:[
-      { t:'Acredito genuinamente que dinheiro e abundância estão disponíveis e acessíveis para mim.', dim:'Disponibilidade' },
-      { t:'Mereço cobrar o que meu trabalho e minha expertise realmente valem — sem culpa ou hesitação.', dim:'Valor' },
-      { t:'Meu sucesso financeiro pode crescer continuamente sem comprometer minha integridade ou meus valores.', dim:'Expansão' },
-      { t:'Quando penso em riqueza e prosperidade, a primeira emoção que sinto é de possibilidade — não de culpa ou medo.', dim:'Emoção base' }
+      { t:'Acredito genuinamente que posso construir uma vida que me realize — independente do meu relacionamento.', dim:'Autonomia de Vida' },
+      { t:'Consigo tomar decisões importantes sem precisar da validação ou aprovação de outras pessoas.', dim:'Autonomia Decisória' },
+      { t:'Minha independência financeira é algo que valorizo e protejo — mesmo dentro do relacionamento.', dim:'Autonomia Financeira' },
+      { t:'Quando penso em estar sozinha, a primeira emoção que sinto é de possibilidade — não de medo.', dim:'Autonomia Emocional' }
     ]
   }
 ];
 
-const KEYS = ['disc','jung','spranger','leadership','beliefs','abundance','relacionamento'];
+const KEYS = ['disc','jung','spranger','leadership','beliefs','relacionamento','abundance'];
 
 const DISC_INFO = {
   D:{ name:'Dominante', color:'#DC2626',
-      desc:'Você é orientada a resultado, decisiva e direta. Tem alta tolerância ao risco e age rapidamente. Pode ser percebida como impaciente, mas seu instinto de movimento é um ativo poderoso de liderança.' },
+      desc:'Você é assertiva, decidida e age com rapidez nas situações da vida. Enfrenta conflitos de frente, tem clareza do que quer e não gosta de depender. Esse padrão te dá força — mas pode dificultar a vulnerabilidade e o pedido de ajuda nas relações íntimas.' },
   I:{ name:'Influente',  color:'#F59E0B',
-      desc:'Você inspira, conecta e energiza pessoas. É otimista, comunicativa e carismática. Pode dispersar em detalhes, mas sua capacidade de engajar times é um diferencial estratégico raro.' },
+      desc:'Você conecta, inspira e anima os ambientes por onde passa. É expressiva, otimista e busca conexão genuína. Seu ponto de atenção é a dificuldade em dizer não e a tendência de priorizar a harmonia em detrimento das próprias necessidades.' },
   S:{ name:'Estável',    color:'#059669',
-      desc:'Você é a âncora do time — confiável, consistente e colaborativa. Prefere ambientes previsíveis e relacionamentos profundos. Sua lealdade e constância constroem organizações sólidas.' },
-  C:{ name:'Criterioso', color:'#2563EB',
-      desc:'Você garante qualidade, analisa com profundidade e minimiza erros. Sistemática e perfeccionista, pode ser lenta em decidir, mas suas entregas têm o mais alto padrão de precisão.' }
+      desc:'Você é a âncora nas relações — confiável, consistente e profundamente comprometida. Prefere ambientes previsíveis e vínculos sólidos. Sua lealdade é um presente raro, mas a dificuldade em impor limites pode custar caro em relações desequilibradas.' },
+  C:{ name:'Criteriosa', color:'#2563EB',
+      desc:'Você analisa tudo antes de se decidir — nas relações e na vida. É detalhista, criteriosa e tem padrões elevados para si e para os outros. Pode se fechar emocionalmente quando o ambiente não parece seguro o suficiente para se abrir.' }
 };
 
 const LEADERSHIP_INFO = {
-  0:{ name:'Diretivo', icon:'⚡', desc:'Você lidera com clareza e firmeza, definindo expectativas e cobrando resultados. Forte em situações de crise e com times iniciantes que precisam de direção clara.' },
-  1:{ name:'Treinador (Coach)', icon:'🎓', desc:'Você desenvolve pessoas, orientando e dando feedback constante. Forte no crescimento individual e na formação de novos líderes dentro do time.' },
-  2:{ name:'Apoiador', icon:'🤝', desc:'Você constrói relações, cria ambiente seguro e apoia emocionalmente. Forte na coesão de times, no engajamento e na retenção de talentos.' },
-  3:{ name:'Delegador', icon:'🚀', desc:'Você confia no time, delega com autonomia e foca em visão e metas. Forte com profissionais experientes e times maduros que operam com alta autonomia.' }
+  0:{ name:'Diretiva', icon:'⚡', desc:'Você lidera com clareza e firmeza, definindo expectativas e orientando com precisão. Forte em situações de crise e com pessoas que ainda estão construindo sua autonomia — no trabalho e na vida.' },
+  1:{ name:'Treinadora (Coach)', icon:'🎓', desc:'Você desenvolve pessoas, orientando com presença e feedback constante. Forte no crescimento individual e na formação de novas líderes ao seu redor — na carreira, em casa e nos grupos que frequenta.' },
+  2:{ name:'Apoiadora', icon:'🤝', desc:'Você constrói relações sólidas, cria ambientes seguros e apoia emocionalmente quem está ao seu redor. Forte na coesão de grupos, no engajamento genuíno e na criação de vínculos de confiança duradouros.' },
+  3:{ name:'Delegadora', icon:'🚀', desc:'Você confia nas pessoas, delega com autonomia e foca em visão e direção. Forte com pessoas experientes e times maduros — profissional ou pessoalmente — que operam com alta independência.' }
 };
 
 const JUNG_DESC = {
@@ -969,13 +969,13 @@ function calcBeliefs() {
   return {
     capacidade:  { score:(b[0]||0)+(b[3]||0), max:10, label:'Crença em Capacidade' },
     merecimento: { score:(b[1]||0)+(b[5]||0), max:10, label:'Senso de Merecimento' },
-    identidade:  { score:(b[2]||0)+(b[4]||0), max:10, label:'Identidade de Líder' },
+    identidade:  { score:(b[2]||0)+(b[4]||0), max:10, label:'Identidade e Integridade' },
     abundancia:  { score:ab.reduce((s,v)=>s+(v||0),0), max:20, label:'Mentalidade de Abundância' }
   };
 }
 
 // ════════════════════════════════════════════════════
-// BEST ROLES ENGINE
+// BEST ROLES
 // ════════════════════════════════════════════════════
 function calcBestRoles(disc, jung, spranger, leadership, beliefs) {
   const jStr = jung.map(d => d.winner).join('');
@@ -1226,6 +1226,7 @@ function buildResults() {
   const spranger   = calcSpranger();
   const leadership = calcLeadership();
   const beliefs    = calcBeliefs();
+  const bestRoles  = calcBestRoles(disc, jung, spranger, leadership, beliefs);
 
   const jungType = jung.map(d => d.winner).join('');
   const discTotal = Object.values(disc).reduce((a,b)=>a+b,0);
@@ -1312,7 +1313,7 @@ function buildResults() {
   `;
 
   // 4. Leadership
-  const lNames = ['Diretivo','Treinador','Apoiador','Delegador'];
+  const lNames = ['Diretiva','Treinadora','Apoiadora','Delegadora'];
   stack.innerHTML += `
     <div class="r-card">
       <div class="r-card-head">
@@ -1338,7 +1339,7 @@ function buildResults() {
     </div>
   `;
 
-  // 5. Beliefs
+  // 5. Crenças e Identidade
   const bArr = Object.values(beliefs);
   const weakest = [...bArr].sort((a,b) => (a.score/a.max)-(b.score/b.max))[0];
   const weakPct = Math.round((weakest.score/weakest.max)*100);
@@ -1355,7 +1356,7 @@ function buildResults() {
             <div class="belief-lbl">${b.label}</div>
           </div>`).join('')}
       </div>
-      ${weakPct <= 55 ? `<div class="belief-warning">⚠️ <strong>${weakest.label}</strong> é sua maior área de desenvolvimento (${weakPct}%). Crenças nessa dimensão têm impacto direto nos seus resultados de liderança e nos seus relacionamentos.</div>` : ''}
+      ${weakPct <= 55 ? `<div class="belief-warning">⚠️ <strong>${weakest.label}</strong> é sua maior área de atenção (${weakPct}%). Fortalecer essa dimensão impacta diretamente sua capacidade de liderar, se relacionar e tomar decisões alinhadas com quem você é.</div>` : ''}
     </div>
   `;
 
@@ -1364,12 +1365,12 @@ function buildResults() {
   const relA = state.answers.relacionamento;
   if (relA && relA.some(v => v !== null)) {
     const relDims = [
-      {label:'Autenticidade',    score:relA[0]||0, max:5},
-      {label:'Comunicação',      score:relA[1]||0, max:5},
-      {label:'Vulnerabilidade',  score:relA[2]||0, max:5},
-      {label:'Equilíbrio',       score:relA[3]||0, max:5},
-      {label:'Reconhecimento',   score:relA[4]||0, max:5},
-      {label:'Força Relacional', score:relA[5]||0, max:5}
+      {label:'Autenticidade',       score:relA[0]||0, max:5},
+      {label:'Comunicação',         score:relA[1]||0, max:5},
+      {label:'Segurança',           score:relA[2]||0, max:5},
+      {label:'Equilíbrio',          score:relA[3]||0, max:5},
+      {label:'Reconhecimento',      score:relA[4]||0, max:5},
+      {label:'Qualidade do Vínculo',score:relA[5]||0, max:5}
     ];
     const relWeak = relDims.reduce((a,b) => a.score < b.score ? a : b);
     const relWeakPct = Math.round((relWeak.score / relWeak.max) * 100);
@@ -1377,7 +1378,7 @@ function buildResults() {
       <div class="r-card">
         <div class="r-card-head">
           <div class="r-icon">💞</div>
-          <div><div class="r-title">Dinâmica Relacional</div><div class="r-sub">Relacionamento com parceiro(a)</div></div>
+          <div><div class="r-title">Seu Relacionamento Íntimo</div><div class="r-sub">Qualidade do vínculo e padrões relacionais</div></div>
         </div>
         <div class="beliefs-grid">
           ${relDims.map(d => `
@@ -1386,67 +1387,54 @@ function buildResults() {
               <div class="belief-lbl">${d.label}</div>
             </div>`).join('')}
         </div>
-        ${relWeakPct <= 55 ? `<div class="belief-warning">⚠️ <strong>${relWeak.label}</strong> é sua maior área de atenção no relacionamento (${relWeakPct}%). Trabalhar essa dimensão pode transformar a qualidade da sua conexão íntima.</div>` : ''}
+        ${relWeakPct <= 55 ? `<div class="belief-warning">⚠️ <strong>${relWeak.label}</strong> é sua maior área de atenção no relacionamento (${relWeakPct}%). Trabalhar essa dimensão pode transformar profundamente a qualidade da sua conexão íntima.</div>` : ''}
       </div>
     `;
   }
 
-  // 7. Best Roles
-  const bestRoles = calcBestRoles(disc, jung, spranger, leadership, beliefs);
+  // 7. Funções Ideais na Empresa
   stack.innerHTML += `
     <div class="r-card">
       <div class="r-card-head">
-        <div class="r-icon">💼</div>
+        <div class="r-icon">🏆</div>
         <div>
           <div class="r-title">Funções Ideais na Empresa</div>
-          <div class="r-sub">Síntese das 6 dimensões do seu perfil — DISC + Jung + Valores + Liderança</div>
+          <div class="r-sub">Cruzamento DISC + Jung + Spranger + Liderança + Crenças</div>
         </div>
       </div>
       <div class="roles-intro">
-        Com base no cruzamento de todas as dimensões do seu mapeamento, estas são as <strong>2 funções onde você tem o maior potencial de impacto natural</strong> — onde seu padrão de comportamento, valores reais e estilo de liderança somam, não competem.
+        Com base no cruzamento das 5 dimensões científicas do seu mapeamento, estas são as funções onde você tem maior fit natural — onde seu perfil encontra o ambiente ideal para performar e se realizar.
       </div>
       <div class="roles-grid">
-        ${bestRoles.map((r,i) => `
+        ${bestRoles.map((role, idx) => `
           <div class="role-card">
-            <div class="role-header" style="background:linear-gradient(135deg,${r.color}14,${r.color}04);border-left:3px solid ${r.color}">
-              <div class="role-icon-wrap">${r.icon}</div>
+            <div class="role-header" style="background:linear-gradient(135deg,${role.color}14,${role.color}04);border-left:3px solid ${role.color}">
+              <div class="role-icon-wrap">${role.icon}</div>
               <div class="role-info">
-                ${i === 0 ? `<span class="role-badge-top">Nº 1 — Maior aderência</span>` : `<span class="role-badge-top" style="color:var(--muted)">Nº 2 — Alta aderência</span>`}
-                <div class="role-name">${r.name}</div>
-                <div class="role-sub">${r.sub}</div>
+                <span class="role-badge-top">${idx === 0 ? 'Melhor fit' : 'Forte fit secundário'}</span>
+                <div class="role-name">${role.name}</div>
+                <div class="role-sub">${role.sub}</div>
               </div>
-              <div class="role-fit-badge" style="background:${r.color}">${r.fit}%</div>
+              <div class="role-fit-badge" style="background:${role.color}">${role.score}%</div>
             </div>
-            <div class="role-fit-track">
-              <div class="role-fit-fill" style="background:${r.color}" data-w="${r.fit}"></div>
-            </div>
-            <div class="role-desc">${r.desc}</div>
+            <div class="role-desc">${role.desc}</div>
             <div class="role-why">
-              <div class="role-why-label">Por que você se encaixa</div>
-              <ul>
-                ${(r.why.length ? r.why : [`perfil ${jungType} e comportamento ${DISC_INFO[discPrimary].name} convergem para esta função`])
-                  .map(w => `<li>${w}</li>`).join('')}
-              </ul>
+              <div class="role-why-label">Por que faz sentido para o seu perfil</div>
+              <ul>${role.why.map(w => `<li>${w}</li>`).join('')}</ul>
             </div>
-          </div>
-        `).join('')}
+          </div>`).join('')}
       </div>
     </div>
   `;
-  setTimeout(() => {
-    document.querySelectorAll('.role-fit-fill[data-w]').forEach(el => {
-      el.style.width = el.dataset.w + '%';
-    });
-  }, 80);
 
   // 8. CTA
   stack.innerHTML += `
     <div class="cta-card">
       <p class="cta-eyebrow">Próximo passo</p>
-      <h2>Seu perfil está <em>mapeado</em>.<br>E agora?</h2>
+      <h2>Seu mapa está <em>traçado</em>.<br>E agora?</h2>
       <p>
-        Com base no seu mapeamento completo — DISC, Jung, Spranger, Liderança, Ansiedade e Crenças — você agora tem clareza sobre seus padrões comportamentais e áreas de desenvolvimento.<br><br>
-        <strong>Agende uma conversa para entender o que o seu mapa revela.</strong>
+        Com base no seu mapeamento completo — DISC, Jung, Spranger, Liderança, Crenças, Relacionamento e Abundância — você agora tem clareza sobre seus padrões comportamentais e suas maiores áreas de crescimento.<br><br>
+        <strong>Agende uma conversa para entender o que o seu mapa revela — e o que você pode fazer com isso.</strong>
       </p>
       <div class="cta-row">
         <button class="btn-outline light" onclick="doShare()">Compartilhar resultado</button>
@@ -1460,7 +1448,7 @@ function buildResults() {
 
 function doShare() {
   if (navigator.share) {
-    navigator.share({ title: 'Meu Perfil Comportamental — Larissa Machado', url: window.location.href });
+    navigator.share({ title: 'Meu Perfil Emocional — Larissa Machado', url: window.location.href });
   } else {
     navigator.clipboard.writeText(window.location.href).then(() => alert('Link copiado para a área de transferência.'));
   }
