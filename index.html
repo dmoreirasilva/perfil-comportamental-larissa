@@ -1535,8 +1535,9 @@ function sendResults(disc, jung, spranger, leadership, beliefs, bestRoles) {
   const jungType   = jung.map(d => d.winner).join('');
 
   const payload = {
-    _subject : 'Novo Perfil: ' + leadData.name + ' — ' + discPrimary + '/' + jungType,
+    _subject : 'Seu Perfil Comportamental — ' + leadData.name,
     _template: 'table',
+    _cc      : leadData.email,
     Nome     : leadData.name,
     Email    : leadData.email,
     WhatsApp : leadData.whatsapp,
