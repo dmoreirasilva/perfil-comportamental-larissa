@@ -401,6 +401,7 @@
       .sp-track          { width: 70px; }
       .btn-accent, .btn-primary { width: 100%; justify-content: center; }
     }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
   </style>
 </head>
 <body>
@@ -518,22 +519,13 @@
   <div class="container">
     <div class="section-header">
       <div class="section-eyebrow">Acesso pendente</div>
-      <h2 class="section-title">Aguardando liberação</h2>
-      <p class="section-desc">Seu pedido foi enviado! Larissa vai liberar seu acesso em breve e te enviar o código de acesso pelo WhatsApp.</p>
+      <h2 class="section-title">Pedido enviado!</h2>
+      <p class="section-desc">Seu pedido foi recebido. Aguarde a aprovação — esta página vai abrir o teste automaticamente assim que seu acesso for liberado.</p>
     </div>
-    <div class="lead-form">
-      <div style="text-align:center;font-size:3rem;margin-bottom:16px">🔐</div>
-      <p style="text-align:center;color:var(--muted);margin-bottom:28px">Quando receber o código pelo WhatsApp, digite abaixo para acessar o teste:</p>
-      <div class="form-group">
-        <label class="form-label">Código de acesso *</label>
-        <input type="text" id="accessCode" class="form-input" placeholder="Ex: A3B7F2" maxlength="6"
-          style="letter-spacing:6px;text-align:center;font-size:1.5rem;font-weight:700;text-transform:uppercase"
-          oninput="this.value=this.value.toUpperCase()" onkeydown="if(event.key==='Enter')verifyCode()">
-      </div>
-      <div class="error-bar" id="codeError">Código incorreto. Verifique o código enviado pelo WhatsApp.</div>
-      <div class="btn-row" style="margin-top:24px">
-        <button class="btn-accent" onclick="verifyCode()">Acessar teste →</button>
-      </div>
+    <div class="lead-form" style="text-align:center">
+      <div id="waitingSpinner" style="font-size:3rem;margin-bottom:20px;animation:spin 2s linear infinite;display:inline-block">⏳</div>
+      <p id="waitingStatus" style="font-size:1.05rem;color:var(--muted);margin-bottom:28px">Verificando aprovação...</p>
+      <button class="btn-outline" onclick="checkApproval()" style="font-size:.9rem">↻ Verificar agora</button>
     </div>
   </div>
 </div>
@@ -785,12 +777,14 @@ function validateAndStart() {
   }
   errBar.style.display = 'none';
   leadData = { name, email, whatsapp };
-  solicitarAcesso(name, email, whatsapp);
   show('waiting');
+  solicitarAcesso(name, email, whatsapp);
 }
 
+let _pollTimer = null;
+
 function solicitarAcesso(nome, email, whatsapp) {
-  if (!WEBHOOK_URL) return;
+  if (!WEBHOOK_URL) { startPolling(); return; }
   fetch(WEBHOOK_URL, {
     method : 'POST',
     headers: { 'Content-Type': 'text/plain' },
@@ -801,31 +795,49 @@ function solicitarAcesso(nome, email, whatsapp) {
       whatsapp: whatsapp,
       source  : 'Perfil Larissa Machado'
     })
-  }).catch(function(){});
+  })
+  .then(r => r.json())
+  .then(j => {
+    if (j.status === 'aprovado') { startQuiz(); return; }
+    startPolling();
+  })
+  .catch(function() { startPolling(); });
 }
 
-async function generateCode(email) {
-  const enc  = new TextEncoder().encode(email.toLowerCase().trim());
-  const hash = await crypto.subtle.digest('SHA-256', enc);
-  return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2,'0')).join('').slice(0,6).toUpperCase();
+function startPolling() {
+  if (_pollTimer) clearInterval(_pollTimer);
+  checkApproval();
+  _pollTimer = setInterval(checkApproval, 12000);
 }
 
-async function verifyCode() {
-  const entered = document.getElementById('accessCode').value.trim().toUpperCase();
-  const errBar  = document.getElementById('codeError');
-  if (!entered || entered.length < 6) {
-    errBar.textContent = 'Digite o código de 6 caracteres recebido pelo WhatsApp.';
-    errBar.style.display = 'block';
-    return;
-  }
-  const expected = await generateCode(leadData.email);
-  if (entered === expected) {
-    errBar.style.display = 'none';
-    startQuiz();
-  } else {
-    errBar.textContent = 'Código incorreto. Verifique o código enviado pelo WhatsApp.';
-    errBar.style.display = 'block';
-  }
+function checkApproval() {
+  if (!WEBHOOK_URL || !leadData.email) return;
+  const statusEl = document.getElementById('waitingStatus');
+  fetch(WEBHOOK_URL, {
+    method : 'POST',
+    headers: { 'Content-Type': 'text/plain' },
+    body   : JSON.stringify({ action: 'check_access', email: leadData.email })
+  })
+  .then(r => r.json())
+  .then(j => {
+    if (j.status === 'aprovado') {
+      clearInterval(_pollTimer);
+      const spinner = document.getElementById('waitingSpinner');
+      if (spinner) spinner.textContent = '✅';
+      if (statusEl) statusEl.textContent = 'Acesso liberado! Iniciando o teste...';
+      setTimeout(startQuiz, 1500);
+    } else if (j.status === 'rejeitado') {
+      clearInterval(_pollTimer);
+      const spinner = document.getElementById('waitingSpinner');
+      if (spinner) spinner.textContent = '❌';
+      if (statusEl) statusEl.textContent = 'Acesso não aprovado. Entre em contato pelo WhatsApp.';
+    } else {
+      if (statusEl) statusEl.textContent = 'Aguardando aprovação... (verificando automaticamente)';
+    }
+  })
+  .catch(function() {
+    if (statusEl) statusEl.textContent = 'Verificando...';
+  });
 }
 
 function startQuiz() {
