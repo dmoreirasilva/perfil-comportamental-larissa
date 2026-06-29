@@ -513,6 +513,31 @@
   </div>
 </div>
 
+<!-- ═══════════════════════ AGUARDANDO LIBERAÇÃO ═══════════════════════ -->
+<div id="screen-waiting" class="screen">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Acesso pendente</div>
+      <h2 class="section-title">Aguardando liberação</h2>
+      <p class="section-desc">Seu pedido foi enviado! Larissa vai liberar seu acesso em breve e te enviar o código de acesso pelo WhatsApp.</p>
+    </div>
+    <div class="lead-form">
+      <div style="text-align:center;font-size:3rem;margin-bottom:16px">🔐</div>
+      <p style="text-align:center;color:var(--muted);margin-bottom:28px">Quando receber o código pelo WhatsApp, digite abaixo para acessar o teste:</p>
+      <div class="form-group">
+        <label class="form-label">Código de acesso *</label>
+        <input type="text" id="accessCode" class="form-input" placeholder="Ex: A3B7F2" maxlength="6"
+          style="letter-spacing:6px;text-align:center;font-size:1.5rem;font-weight:700;text-transform:uppercase"
+          oninput="this.value=this.value.toUpperCase()" onkeydown="if(event.key==='Enter')verifyCode()">
+      </div>
+      <div class="error-bar" id="codeError">Código incorreto. Verifique o código enviado pelo WhatsApp.</div>
+      <div class="btn-row" style="margin-top:24px">
+        <button class="btn-accent" onclick="verifyCode()">Acessar teste →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ═══════════════════════ QUIZ ═══════════════════════ -->
 <div id="screen-quiz" class="screen">
   <div class="container">
@@ -761,7 +786,7 @@ function validateAndStart() {
   errBar.style.display = 'none';
   leadData = { name, email, whatsapp };
   solicitarAcesso(name, email, whatsapp);
-  startQuiz();
+  show('waiting');
 }
 
 function solicitarAcesso(nome, email, whatsapp) {
@@ -777,6 +802,30 @@ function solicitarAcesso(nome, email, whatsapp) {
       source  : 'Perfil Larissa Machado'
     })
   }).catch(function(){});
+}
+
+async function generateCode(email) {
+  const enc  = new TextEncoder().encode(email.toLowerCase().trim());
+  const hash = await crypto.subtle.digest('SHA-256', enc);
+  return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2,'0')).join('').slice(0,6).toUpperCase();
+}
+
+async function verifyCode() {
+  const entered = document.getElementById('accessCode').value.trim().toUpperCase();
+  const errBar  = document.getElementById('codeError');
+  if (!entered || entered.length < 6) {
+    errBar.textContent = 'Digite o código de 6 caracteres recebido pelo WhatsApp.';
+    errBar.style.display = 'block';
+    return;
+  }
+  const expected = await generateCode(leadData.email);
+  if (entered === expected) {
+    errBar.style.display = 'none';
+    startQuiz();
+  } else {
+    errBar.textContent = 'Código incorreto. Verifique o código enviado pelo WhatsApp.';
+    errBar.style.display = 'block';
+  }
 }
 
 function startQuiz() {
