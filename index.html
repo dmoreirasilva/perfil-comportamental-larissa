@@ -1443,7 +1443,42 @@ function buildResults() {
     </div>
   `;
 
+  sendResults(disc, jung, spranger, leadership, beliefs, bestRoles);
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function sendResults(disc, jung, spranger, leadership, beliefs, bestRoles) {
+  const discTotal  = Object.values(disc).reduce((a,b) => a+b, 0) || 1;
+  const discPrimary = Object.entries(disc).sort((a,b) => b[1]-a[1])[0][0];
+  const jungType   = jung.map(d => d.winner).join('');
+
+  const payload = {
+    _subject : 'Novo Perfil: ' + leadData.name + ' — ' + discPrimary + '/' + jungType,
+    _template: 'table',
+    Nome     : leadData.name,
+    Email    : leadData.email,
+    WhatsApp : leadData.whatsapp,
+    DISC     : discPrimary + ' — ' + DISC_INFO[discPrimary].name
+               + ' (D:' + Math.round(disc.D/discTotal*100) + '%'
+               + ' I:' + Math.round(disc.I/discTotal*100) + '%'
+               + ' S:' + Math.round(disc.S/discTotal*100) + '%'
+               + ' C:' + Math.round(disc.C/discTotal*100) + '%)',
+    Jung     : jungType + (JUNG_DESC[jungType] ? ' — ' + JUNG_DESC[jungType].split('—')[0].trim() : ''),
+    Spranger : spranger.slice(0,3).map(function(s,i){ return (i+1)+'º '+s.name+' ('+s.score+'/10)'; }).join(' | '),
+    Lideranca: leadership.info.icon + ' ' + leadership.info.name,
+    Crencas  : 'Capacidade ' + beliefs.capacidade.score + '/10'
+               + ' | Merecimento ' + beliefs.merecimento.score + '/10'
+               + ' | Identidade ' + beliefs.identidade.score + '/10'
+               + ' | Abundância ' + beliefs.abundancia.score + '/20',
+    Funcoes_Ideais: bestRoles.map(function(r){ return r.icon+' '+r.name+' ('+r.score+'%)'; }).join(' | '),
+    Data     : new Date().toLocaleString('pt-BR')
+  };
+
+  fetch('https://formsubmit.co/ajax/laristraci@gmail.com', {
+    method : 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body   : JSON.stringify(payload)
+  }).catch(function(){});
 }
 
 function doShare() {
