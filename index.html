@@ -1530,36 +1530,38 @@ function buildResults() {
 }
 
 function sendResults(disc, jung, spranger, leadership, beliefs, bestRoles) {
-  const discTotal  = Object.values(disc).reduce((a,b) => a+b, 0) || 1;
+  const discTotal   = Object.values(disc).reduce((a,b) => a+b, 0) || 1;
   const discPrimary = Object.entries(disc).sort((a,b) => b[1]-a[1])[0][0];
-  const jungType   = jung.map(d => d.winner).join('');
+  const jungType    = jung.map(d => d.winner).join('');
 
   const payload = {
-    _subject : 'Seu Perfil Comportamental — ' + leadData.name,
-    _template: 'table',
-    _cc      : leadData.email,
-    Nome     : leadData.name,
-    Email    : leadData.email,
-    WhatsApp : leadData.whatsapp,
-    DISC     : discPrimary + ' — ' + DISC_INFO[discPrimary].name
-               + ' (D:' + Math.round(disc.D/discTotal*100) + '%'
-               + ' I:' + Math.round(disc.I/discTotal*100) + '%'
-               + ' S:' + Math.round(disc.S/discTotal*100) + '%'
-               + ' C:' + Math.round(disc.C/discTotal*100) + '%)',
-    Jung     : jungType + (JUNG_DESC[jungType] ? ' — ' + JUNG_DESC[jungType].split('—')[0].trim() : ''),
-    Spranger : spranger.slice(0,3).map(function(s,i){ return (i+1)+'º '+s.name+' ('+s.score+'/10)'; }).join(' | '),
-    Lideranca: leadership.info.icon + ' ' + leadership.info.name,
-    Crencas  : 'Capacidade ' + beliefs.capacidade.score + '/10'
-               + ' | Merecimento ' + beliefs.merecimento.score + '/10'
-               + ' | Identidade ' + beliefs.identidade.score + '/10'
-               + ' | Abundância ' + beliefs.abundancia.score + '/20',
-    Funcoes_Ideais: bestRoles.map(function(r){ return r.icon+' '+r.name+' ('+r.score+'%)'; }).join(' | '),
-    Data     : new Date().toLocaleString('pt-BR')
+    action             : 'resultado',
+    timestamp          : new Date().toISOString(),
+    name               : leadData.name,
+    email              : leadData.email,
+    whatsapp           : leadData.whatsapp,
+    disc_D             : disc.D,
+    disc_I             : disc.I,
+    disc_S             : disc.S,
+    disc_C             : disc.C,
+    disc_primary       : discPrimary,
+    jung_type          : jungType,
+    spranger_1         : spranger[0] ? spranger[0].name + ' (' + spranger[0].score + '/10)' : '',
+    spranger_2         : spranger[1] ? spranger[1].name + ' (' + spranger[1].score + '/10)' : '',
+    spranger_3         : spranger[2] ? spranger[2].name + ' (' + spranger[2].score + '/10)' : '',
+    leadership_style   : leadership.info.icon + ' ' + leadership.info.name,
+    leadership_scores  : leadership.scores.join('/'),
+    anxiety_pct        : 0,
+    anxiety_level      : 'Não mapeado',
+    beliefs_capacidade : beliefs.capacidade.score,
+    beliefs_merecimento: beliefs.merecimento.score,
+    beliefs_identidade : beliefs.identidade.score,
+    beliefs_abundancia : beliefs.abundancia.score
   };
 
-  fetch('https://formsubmit.co/ajax/laristraci@gmail.com', {
+  fetch(WEBHOOK_URL, {
     method : 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    headers: { 'Content-Type': 'application/json' },
     body   : JSON.stringify(payload)
   }).catch(function(){});
 }
